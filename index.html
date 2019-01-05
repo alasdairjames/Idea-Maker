@@ -14,20 +14,42 @@
 	<div>
 		<h2>Data Set 1</h2>
 		<input type="text" name="input1" class="input1">
-		<label for="idea1">Enter Your First Dataset Here</label>
+		<label for="input">Enter Your First Dataset Here</label>
 		<ul class="dataset1">
 		</ul>
 	</div>
 	<div>
 		<h2>Data Set 2</h2>
 		<input type="text" name="input2" class="input2">
-		<label for="idea2">Enter Your Second Dataset Here</label>
+		<label for="input2">Enter Your Second Dataset Here</label>
 		<ul class="dataset2">
 		</ul>
 	</div>
+	<button class="sampleDataBtn">Add Sample Data Sets</button>
+	<button class="clearDataBtn">Clear Datasets</button>
 
 </section>
+
 <button class="randomizeBtn">Randomize My Ideas</button>
+<div id="myModal" class="modal">
+	<div class="modal-content">
+		<div>
+			<h2 class="dataItem1">Sample1</h2>
+			<p>+</p>
+			<h2 class="dataItem2">Sample2</h2>
+		</div>
+		<div>
+			<textarea class="ideaBox"></textarea>
+		</div>
+		<div>
+			<button class="modalSkipBtn">Skip</button>
+			<button class="modalEnterBtn">Enter</button>
+			<button class="modalFinishBtn">Finish</button>
+		</div>
+	</div>	
+
+</div>
+
 <script src="javascript.js"></script>
 </body>
 </html>

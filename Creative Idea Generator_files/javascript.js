@@ -10,7 +10,6 @@ var addBtn1 = document.querySelector(".addBtn1");
 var randomizeBtn = document.querySelector(".randomizeBtn");
 var sampleDataBtn = document.querySelector(".sampleDataBtn");
 var clearDataBtn = document.querySelector(".clearDataBtn");
-var outputList = document.createElement("ul");
 
 ///////////////////
 //Add to Datalist Functions 
@@ -64,7 +63,6 @@ function clearDataset () {
 	dataset2.innerHTML = "";
 }
 
-//buttons for sample and clear
 sampleDataBtn.addEventListener("click", function(){
 	sampleDataSet();
 })
@@ -88,72 +86,17 @@ return y;
 function listNumber(dataset) {
 	var length = dataset.childElementCount;
 	length = randomNumber(length);
-	return length;
+	console.log(length);
 }
 
 //must return a text only list element from the specified dataset 
 function randomize(dataset){
-	x=listNumber(dataset);
-	x-=1;
+	x=2;
 	var listItem = dataset.childNodes[x].innerHTML;
-	return listItem;	
+	console.log(listItem);
 }
 
 ///////////////////
-//Modal
+//
 ///////////////////
 
-// Get the modal
-var modal = document.getElementById('myModal');
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on the button, open the modal 
-randomizeBtn.onclick = function() {
-  modal.style.display = "block";
-  outputList = document.createElement = "ul";
-  loadNewCombination();
-}
-
-///////////////////
-//Modal Functionality
-///////////////////
-
-//setting variables
-var dataItem1 = document.querySelector(".dataItem1");
-var dataItem2 = document.querySelector(".dataItem2");
-var ideaBox = document.querySelector(".ideaBox");
-
-
-//loads a new combination
-function loadNewCombination() {
-	function loadDataItem(dataset, dataItem){
-	dataItem.innerHTML = randomize(dataset);
-	}
-	loadDataItem(dataset1, dataItem1);
-	loadDataItem(dataset2, dataItem2);
-	ideaBox.select();
-	ideaBox.value = "";
-}
-
-//goes onto the next combination whilst saving the output
-function addToIdeaList(){
-	var listItem = document.createElement("li");
-	var item = ideaBox.value;
-	listItem.innerHTML = item;
-	outputList.appendChild(listItem);
-	loadNewCombination();
-}
-
-//using jquery to detect enter press within the input box
-
-
-//closes the modal
-function finishCombinations() {
-modal.style.display = "none";
-document.write(outputList);
-}
