@@ -32,6 +32,13 @@
 .ideaBox {
 	width: 50%;
 	margin: 10px;
+}
 
+.dataset li:hover {
+	color: red;
+}
+
+button {
+	padding: 10px;
 
 }

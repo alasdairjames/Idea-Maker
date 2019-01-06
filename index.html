@@ -10,26 +10,34 @@
 <body>
 <h1>Creative Idea Generator</h1>
 <p>Helps to generate creative ideas by creating mental collisions.</p>
+<h3>Instructions</h3>
+<ol>
+	<li>Enter one set of values in the first data set. For example, I'm using a set of online platforms.</li>
+	<li>Enter your second set of values, for example I'm using a list of things I'm interested in.</li>
+	<li>You can click on list items to remove them, or click clear datasets to clear all.</li>
+	<li>Once you've entered both lists, click randomize, enter what comes to mind in the input box.</li>
+	<li>When you've had enough ideas, press finish, and your list will print out at the bottom of the page.</li>
+</ol>
 <section>
 	<div>
 		<h2>Data Set 1</h2>
 		<input type="text" name="input1" class="input1">
 		<label for="input">Enter Your First Dataset Here</label>
-		<ul class="dataset1">
+		<ul class="dataset1 dataset">
 		</ul>
 	</div>
 	<div>
 		<h2>Data Set 2</h2>
 		<input type="text" name="input2" class="input2">
 		<label for="input2">Enter Your Second Dataset Here</label>
-		<ul class="dataset2">
+		<ul class="dataset2 dataset">
 		</ul>
 	</div>
 	<button class="sampleDataBtn">Add Sample Data Sets</button>
 	<button class="clearDataBtn">Clear Datasets</button>
 
 </section>
-
+<section>
 <button class="randomizeBtn">Randomize My Ideas</button>
 <div id="myModal" class="modal">
 	<div class="modal-content">
@@ -38,8 +46,9 @@
 			<p>+</p>
 			<h2 class="dataItem2">Sample2</h2>
 		</div>
+		<p>Enter what comes to mind when you combine the two items above.</p>
 		<div>
-			<textarea class="ideaBox"></textarea>
+			<input type="text" name="ideaBox" class="ideaBox"></input>
 		</div>
 		<div>
 			<button class="modalSkipBtn">Skip</button>
@@ -47,9 +56,11 @@
 			<button class="modalFinishBtn">Finish</button>
 		</div>
 	</div>	
-
 </div>
+</section>
 
+<h2>Output List</h2>
+<div class="outputListDiv"></div>
 <script src="javascript.js"></script>
 </body>
 </html>

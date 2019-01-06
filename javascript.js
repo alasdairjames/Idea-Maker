@@ -11,6 +11,26 @@ var randomizeBtn = document.querySelector(".randomizeBtn");
 var sampleDataBtn = document.querySelector(".sampleDataBtn");
 var clearDataBtn = document.querySelector(".clearDataBtn");
 var outputList = document.createElement("ul");
+var outputListDiv = document.querySelector(".outputListDiv");
+
+///////////////////
+//Generic Functions
+///////////////////
+
+//click event function 
+function elementClick(element, callback) {
+	element.addEventListener("click", function(){
+		callback();
+	});
+}
+
+//Input Enter function input=target input field. Callback = function to call. 
+//Param 1 & 2 are any parametrs to be passed to the function 
+function inputEnterPress(input, callback, param1, param2) {
+	$(input).on("keypress", function(e) {
+	if(e.which == 13) {
+	callback(param1,param2);
+}})};
 
 ///////////////////
 //Add to Datalist Functions 
@@ -37,15 +57,21 @@ function keyPress(input, dataset) {
 		}
 }
 
-//using jquery to detect enter press within the input box
-function inputPress(input, dataset) {
-	$(input).on("keypress", function(e) {
-	if(e.which == 13) {
-	keyPress(input,dataset);
-}})};
+inputEnterPress(input1,keyPress, input1, dataset1);
+inputEnterPress(input2,keyPress, input2, dataset2);
 
-inputPress(input1,dataset1);
-inputPress(input2,dataset2);
+///////////////////
+//Remove from List Function 
+///////////////////
+
+function listItemRemove(dataset){
+	dataset.addEventListener("click", (event) => {
+		var li = event.target;
+		$(li).remove();
+	});
+};
+listItemRemove(dataset1);
+listItemRemove(dataset2);
 
 ///////////////////
 //Sample/Clear Functions
@@ -115,7 +141,6 @@ var span = document.getElementsByClassName("close")[0];
 // When the user clicks on the button, open the modal 
 randomizeBtn.onclick = function() {
   modal.style.display = "block";
-  outputList = document.createElement = "ul";
   loadNewCombination();
 }
 
@@ -146,16 +171,15 @@ function addToIdeaList(){
 	var item = ideaBox.value;
 	listItem.innerHTML = item;
 	outputList.appendChild(listItem);
+	console.log(outputList);
 	loadNewCombination();
 }
-
-//using jquery to detect enter press within the input box
-
 
 //closes the modal
 function finishCombinations() {
 modal.style.display = "none";
-document.write(outputList);
+outputListDiv.appendChild(outputList);
+
 }
 
 ///////////////////
@@ -166,5 +190,8 @@ var modalSkipBtn = document.querySelector(".modalSkipBtn");
 var modalEnterBtn = document.querySelector(".modalEnterBtn");
 var modalFinishBtn = document.querySelector(".modalFinishBtn");
 
-//click event function 
-document.addEventListener("click")
+//click button functions
+elementClick(modalSkipBtn, loadNewCombination);
+elementClick(modalEnterBtn, addToIdeaList);
+elementClick(modalFinishBtn, finishCombinations);
+inputEnterPress(ideaBox, addToIdeaList);
