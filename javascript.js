@@ -157,3 +157,5 @@ function finishCombinations() {
 modal.style.display = "none";
 document.write(outputList);
 }
+
+//
