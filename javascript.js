@@ -158,4 +158,13 @@ modal.style.display = "none";
 document.write(outputList);
 }
 
-//
+///////////////////
+//Modal Buttons
+///////////////////
+
+var modalSkipBtn = document.querySelector(".modalSkipBtn");
+var modalEnterBtn = document.querySelector(".modalEnterBtn");
+var modalFinishBtn = document.querySelector(".modalFinishBtn");
+
+//click event function 
+document.addEventListener("click")
